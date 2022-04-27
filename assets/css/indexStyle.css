@@ -1,0 +1,440 @@
+
+.wrapper
+{
+  background: linear-gradient(70deg, var(--whiteish) 15%, var(--blackish) 105%);
+}
+
+.wrapper .header
+{
+  width: 100vw;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--blueish);
+  color: var(--blackish);
+  font-family: helvetica;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.wrapper .header .logo
+{
+
+}
+
+.wrapper .header .operations
+{
+  height: 70px;
+  padding: 0 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header .operations button
+{
+  width: 100px;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: var(--blueish);
+  color: var(--blackish);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+}
+
+.header .operations button:hover
+{
+  filter: brightness(1.5);
+}
+
+.wrapper .body
+{
+  width: 100%;
+  height: calc(100% - 70px);
+}
+
+.body .search
+{
+  width: 100%;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.search input
+{
+	width: 300px;
+	height: 35px;
+  padding: 0 15px;
+  background: none;
+  color: var(--whiteish);
+  border: 1px solid var(--blueish);
+}
+
+.search button
+{
+	width: 35px;
+  height: 35px;
+  margin: 0 40px 0 -25px;
+  background: var(--blueish);
+  border: 1px solid var(--blueish);
+  outline: none;
+  transition: 400ms ease-in;
+}
+
+.search button:hover
+{
+	cursor: pointer;
+	font-size: 18px;
+}
+
+.body .stock_display
+{
+  width: 100%;
+  height: calc(100% - 70px);
+  padding: 0 40px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.stock_display table
+{
+  width: 90%;
+}
+
+tbody
+{
+    display: block;
+    height: 550px;
+    overflow: auto;
+    scrollbar-width: none;
+  	font-family: verdana;
+}
+thead tr, tbody tr
+{
+    display: table;
+    width: 100%;
+    height: 60px;
+    table-layout: fixed;
+}
+thead
+{
+    width: 100%;
+}
+
+.report th
+{
+	color: var(--blackish);
+	font-family: helvetica;
+	font-size: 1.2rem;
+	font-weight: 800;
+}
+
+.stock_display table,tr,th,td
+{
+	border-collapse: collapse;
+	text-align: center;
+	color: var(--blackish);
+}
+
+.stock_display table thead tr
+{
+	background: var(--blueish);
+}
+
+
+.stock_display tbody tr
+{
+	background: var(--whiteish);
+	border-top: 1px solid var(--whiteish);
+	margin: 0 0 5px 0;
+  cursor: pointer;
+}
+
+.stock_display tbody tr td
+{
+	color: var(--blackish);
+}
+
+.stock_display tbody tr:hover
+{
+	background: var(--tableRowHover);
+}
+
+.report tbody tr:hover > td
+{
+	color: var(--tableTextHighlight);
+}
+
+tr td i
+{
+  font-size: 1.5rem;
+}
+
+tr td i:hover
+{
+  color: var(--blueish);
+}
+
+.modal_wrapper
+{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(55, 63, 81, 0.6)
+}
+
+.modal
+{
+  width: 600px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  background: var(--blackish);
+}
+
+.modal_wrapper.error .modal
+{
+  width: 400px;
+  height: 200px;
+}
+
+.modal .header
+{
+  width: 100%;
+  height: 70px;
+  padding: 0 15px;
+}
+
+.modal .header i
+{
+  cursor: pointer;
+}
+
+.modal_wrapper.error .modal .content
+{
+  width: 100%;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.modal_wrapper.error .modal .content p
+{
+  color: var(--blueish)
+}
+.modal .content button
+{
+  width: 150px;
+  height: 45px;
+  border: none;
+  outline: none;
+  background: var(--blueish);
+  cursor: pointer;
+}
+
+.modal .content button:hover
+{
+  filter: brightness(1.5);
+}
+
+.modal_wrapper.add_to_cart .content
+{
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.modal_wrapper.add_to_cart .content .row
+{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.modal_wrapper.add_to_cart .content .row .col
+{
+  width: 250px;
+}
+
+.modal_wrapper.add_to_cart .content .row .col p
+{
+  color: var(--blueish);
+  font-size: 1.1rem;
+}
+
+.modal_wrapper.add_to_cart .content .row .col input
+{
+  width: 50px;
+  font-size: 1.1rem;
+}
+
+.modal_wrapper
+{
+  display: none;
+}
+
+.modal_wrapper.cart .content
+{
+  width: 100%;
+  height: 330px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal_wrapper.cart .content .items
+{
+  width: 100%;
+  height: calc(100% - 70px);
+  overflow: auto;
+  padding: 0 15px;
+}
+
+.modal_wrapper.cart .content .items .row
+{
+  width: 100%;
+  height: 70px;
+  margin: 5px 0;
+  border-bottom: 2px solid var(--whiteish);
+  color: var(--whiteish);
+  display: flex;
+  align-items: center;
+}
+
+.modal_wrapper.cart .content .items .row .col:first-child
+{
+  width: 50%;
+}
+
+.modal_wrapper.cart .content .items .row .col:not(:first-child)
+{
+  width: 25%;
+  text-align: right;
+}
+
+.col i.fa-minus-square:hover
+{
+  color: var(--blueish);
+  cursor: pointer;
+}
+
+.modal_wrapper.cart .content .checkout
+{
+  width: 100%;
+  height: 70px;
+  padding: 0 15px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+/* ========================================================== */
+
+.edit_profile .modal
+{
+  width: 500px;
+  height: auto;
+}
+
+.edit_profile .content
+{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+}
+
+.edit_profile .content .row
+{
+  display: flex;
+  width: 100%;
+  height: 50px;
+}
+
+.edit_profile .content .row:nth-child(7)
+{
+  height: auto;
+}
+
+.edit_profile .content .row:not(.row:last-child) .col:first-child
+{
+  height: 100%;
+  width: 150px;
+  text-align: right;
+  font-size: 1.2rem;
+}
+
+.edit_profile .content .row:not(.row:last-child) .col:last-child
+{
+  height: 100%;
+  width: calc(100% - 150px);
+}
+
+.edit_profile .row .col label
+{
+  color: var(--whiteish);
+  margin-right: 15px;
+  line-height: 50px;
+}
+
+.edit_profile input,
+.edit_profile select,
+.edit_profile textarea
+{
+  width: 100%;
+  height: 100%;
+  padding-left: 15px;
+  background: var(--blackish);
+  color: var(--whiteish);
+  border: none;
+  outline: none;
+  border: 2px solid var(--whiteish);
+}
+
+.edit_profile textarea
+{
+  height: 120px;
+  padding: 15px;
+  resize: none;
+}
+
+.edit_profile input:focus,
+.edit_profile select:focus,
+.edit_profile textarea:focus
+{
+  border-color: var(--blueish);
+  color: var(--blueish);
+}
+
+.edit_profile .row:last-child
+{
+  width: 100%;
+}
+
+.edit_profile .row:last-child .col
+{
+  width: 100%;
+  height: 100%;
+}
+
+.edit_profile .row:last-child .col button
+{
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,130 @@
+===Javascript===
+$.post('(a)',
+{
+	(b)
+},
+function(data)
+{
+	(c)
+});
+
+(a) - location of file that javascript is going to communicate with
+	- so for example -'assets/php/login_reg.php'-
+	- the javascript will send information to the php page and execute things depending on what is sent
+	
+(b) - this is the data that is sent to the php side
+	- the format of this is a javscript object (dont need to worry about it too much)
+	- {object_name: value}
+	- you can put variables in the value or numbers or text, most of the time you'll see operation: 'do something'
+	- 
+	{
+      operation: 'login',
+      username: username,
+      password: password
+    } 
+	- this is sending 3 pieces of info to the php side. username and password are variables.
+	
+(c) - this function receives like a result from the php side and depending on that result (data) you can do things
+
+===PHP==
+
+  if($_REQUEST['operation'] == 'login') // check if this part of the code needs to be executed
+  {
+    $username = $_REQUEST['username'];
+    $password = $_REQUEST['password'];
+  }
+  
+  - $_REQUEST['operation'] - gets the value from the javscript side
+  - same with the $_REQUEST['password'] and $_REQUEST['username'] and wherever else you see that
+  - its just communication between the files
+  
+  - now that the php file has the information, you can do things with that information like for example run a sql or what what.
+  
+  - i wont explain the sqls cause i think they are abit self explanitory but
+  
+		$sql = "SELECT * FROM login WHERE username = '$username';";
+		$result = mysqli_query($conn, $sql);
+		
+		so the $sql is a variable storing the sql :D
+		the result is a variable that stores a table that is returned when the sql is executed
+		so for example if we run an sql, that is what is stored in the result variable.
+		
+		so a table has rows right, so we have to go through the rows to find the information we need
+		
+		if(mysqli_num_rows($result) > 0) - this checks if there were any rows returned 
+		so or example if no rows are returned, this statement will be false
+		but if there are rows then something was found with that sql/query
+		
+		now that you know there are rows in the result variable, you dont know how many rows so you have to loop through it
+		
+		while($row = $result->fetch_assoc())
+		
+		which is what this while loop does and it fetches each row of the table and stores it in a variable called $row
+		
+		so if we execute SELECT * FROM `login` ,we get 2 rows now since i added another username
+		
+		and the row is basically an array but not a normal one, its an associative array
+		(thats what the fetch_assoc means, fetch everything and put it into an associative array)
+		
+		so next is to access things from an asociative array and thats done like this
+		our array is $row and we selected everything from the login table so you will use the column names like
+		
+		$row['username'] $row['password'] $row['account_type']
+		
+		***it has to be exactly how its named in the table*** $row['account type'] wont work***
+		
+		and now you can put that or those fields into variables or use it in if statements like in the php file
+		
+		$username = $row['username'];
+		
+		
+		Once you are done doing whatever it is you are doing, you have to communicate back with the javascript
+		so you can let the user know if a login for example is a success or not 
+		and we do this by using an echo statement
+		
+		echo '0';
+		
+		you can echo different things and all will get passed to the javascript side but on the javascript side
+		you will have to know what you are sending back to it.
+		
+		  if(data == '0')
+		  {
+			showAlert('No Account Found, Please Register', 2);
+		  }
+		  else if(data == '1')
+		  {
+			showAlert('Username and Password Do Not Match', 2);
+		  }
+		  
+		  thats what the data is and thats how you handle it based on what was sent via the echo statement.
+		  
+		  
+		  
+
+===JSON===
+
+$rows = array();
+while($row = $result->fetch_assoc())
+{
+$rowData = [
+  'id' => $row['id'],
+  'username' => $row['username'],
+  'name' => $row['name'],
+  'deleted' => $row['deleted']
+];
+array_push($rows, $rowData);
+}
+echo json_encode($rows);
+
+$rows as you can see is an array 
+in the while loop we are pushing things into the array (array_push means to add stuff to it)
+
+$rowData is another array BUT it is an Associative Array
+
+so you have an array insde an array :D...mind blown
+
+take note of these values
+
+[{"id":"1","username":"test@test.com","name":"tester","deleted":"0"}]
+
+this is what we got back from the json object and each thing in it corresponds to the things in the $rowData variable

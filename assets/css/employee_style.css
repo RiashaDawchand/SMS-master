@@ -1,0 +1,388 @@
+.wrapper
+{
+  background: linear-gradient(70deg, var(--whiteish) 15%, var(--blackish) 105%);
+  display: flex;
+
+}
+
+
+.wrapper .header
+{
+  width: 70px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--blueish);
+  color: var(--blackish);
+  font-family: helvetica;
+  font-size: 1.4rem;
+  font-weight: 600;
+  transition: 300ms ease-in-out;
+}
+
+.wrapper .header:hover
+{
+  width: 350px;
+}
+
+.wrapper .body
+{
+  width: calc(100% - 70px);
+  height: 100%;
+}
+
+
+.wrapper .header .operations
+{
+  width: 100%;
+}
+
+.header .operations button
+{
+  width: 100%;
+  height: 70px;
+  border: none;
+  border-bottom: 1px solid var(--whiteish);
+  outline: none;
+  overflow: hidden;
+  background: var(--blueish);
+  color: var(--blackish);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+}
+
+.header .operations button span
+{
+  display: none;
+  margin: 0 15px;
+  font-size: 1rem;
+  transition-property: display;
+  transition-delay: 3500ms;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+}
+
+.wrapper .header:hover .operations button
+{
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper .header:hover .operations button span
+{
+  display: unset;
+  animation-name: fadeIn;
+  animation-duration: 600ms;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+  animation-delay: 100ms;
+}
+
+@keyframes fadeIn
+{
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.header .operations button:hover
+{
+  filter: brightness(1.5);
+}
+
+
+
+.body .search
+{
+  width: 100%;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.search input
+{
+	width: 300px;
+	height: 35px;
+  padding: 0 15px;
+  background: none;
+  color: var(--whiteish);
+  border: 1px solid var(--blueish);
+}
+
+.search button
+{
+	width: 35px;
+  height: 35px;
+  margin: 0 40px 0 -25px;
+  background: var(--blueish);
+  border: 1px solid var(--blueish);
+  outline: none;
+  transition: 400ms ease-in;
+}
+
+.search button:hover
+{
+	cursor: pointer;
+	font-size: 18px;
+}
+
+.body .stock_display
+{
+  width: 100%;
+  height: calc(100% - 70px);
+  padding: 0 40px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.stock_display table
+{
+  width: 90%;
+}
+
+.stock_display tbody
+{
+    display: block;
+    height: 550px;
+    overflow: auto;
+    scrollbar-width: none;
+  	font-family: verdana;
+}
+.stock_display thead tr, .stock_display tbody tr
+{
+    display: table;
+    width: 100%;
+    height: 60px;
+    table-layout: fixed;
+}
+.stock_display thead
+{
+    width: 100%;
+}
+
+.stock_display th
+{
+	color: var(--blackish);
+	font-family: helvetica;
+	font-size: 1.2rem;
+	font-weight: 800;
+}
+
+.stock_display :is(table,tr,th,td)
+{
+	border-collapse: collapse;
+	text-align: center;
+	color: var(--blackish);
+}
+
+.stock_display table thead tr
+{
+	background: var(--blueish);
+}
+
+.stock_display tbody tr
+{
+	background: var(--whiteish);
+	border-top: 1px solid var(--whiteish);
+	margin: 0 0 5px 0;
+  cursor: pointer;
+}
+
+.stock_display tbody tr td
+{
+	color: var(--blackish);
+}
+
+.stock_display tbody tr:hover
+{
+	background: var(--tableRowHover);
+}
+
+.stock_display tbody tr:hover > td
+{
+	color: var(--tableTextHighlight);
+}
+
+.extra_wrap
+{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255,255,255,0.6);
+}
+
+.extra_wrap.show
+{
+  display: flex;
+}
+
+.card
+{
+	background: var(--blackish);
+}
+
+
+.card .card_header
+{
+  background: var(--blueish);
+  color: var(--blackish);
+  font-family: helvetica;
+  font-size: 1.2rem;
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card .card_header p span
+{
+  color: var(--blackish);
+  margin-left: 10px;
+}
+
+.card .card_body
+{
+  min-width: 460px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card .card_body input,
+.card .card_body select,
+.card .card_body button
+{
+  height: 50px;
+}
+
+.card .card_body input,
+.card .card_body select
+{
+  padding: 10px;
+  font-size: 1rem;
+	border: 1px solid var(--blueish);
+	outline: none;
+	background: var(--blackish);
+	color: var(--blueish);
+}
+
+
+select
+{
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.card .btn
+{
+	font-size: 1.2rem;
+	border: none;
+	outline: none;
+	background: var(--blueish);
+	cursor: pointer;
+	transition: 400ms ease-in;
+}
+
+.card .btn:hover
+{
+	background: none;
+	border: 1px solid var(--blueish);
+	color: var(--blueish);
+}
+
+.card .close
+{
+  position: absolute;
+  top: 30px;
+  right: 30px;
+	font-size: 1.8em;
+	color: var(--blackish);
+	cursor: pointer;
+}
+
+.card .close:hover
+{
+	color: var(--blueish);
+}
+
+.error
+{
+	border: 2px solid var(--error) !important;
+}
+
+.send_report .card_header
+{
+  display: flex;
+  justify-content: space-between;
+}
+
+.send_report .card_body
+{
+  height: auto;
+  grid-template-areas: 'email' 'btn';
+}
+
+.send_report .email
+{
+  padding: 25px;
+  height: 50px;
+}
+
+.employee_manage :is(table, tr, td),
+.customer_listing :is(table, tr, td)
+{
+  border-collapse: collapse;
+}
+
+.employee_manage .card_body,
+.customer_listing .card_body
+{
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.employee_manage table,
+.customer_listing table
+{
+  table-layout: fixed;
+
+
+}
+
+.employee_manage table tr,
+.customer_listing table tr
+{
+  height: 50px;
+  border-bottom: 1px solid var(--whiteish);
+}
+
+.employee_manage table tr td,
+.customer_listing table tr td
+{
+  min-width: 230px;
+  text-align: center;
+  color: var(--whiteish);
+}
+
+.employee_manage table p:hover,
+.customer_listing table p:hover
+{
+  color: var(--blueish);
+  text-decoration: underline;
+  cursor: pointer;
+}

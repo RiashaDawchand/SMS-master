@@ -1,0 +1,155 @@
+.wrapper .header
+{
+  width: 100%;
+  height: var(--header_height);
+  background: var(--blueish);
+}
+
+.wrapper .body
+{
+  width: 100%;
+  height: calc(100% - var(--header_height));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(70deg, var(--whiteish) 15%, var(--blackish) 105%);
+}
+
+.card
+{
+  width: 400px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  transition: 500ms ease-in-out;
+  background: var(--blackish);
+}
+
+.card .card_header
+{
+  height: var(--header_height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--blueish);
+}
+
+.card_header h3
+{
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  color: var(--blackish);
+}
+
+.card .card_body
+{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+}
+
+.card .card_body .row
+{
+  display: flex;
+  width: 100%;
+  height: 50px;
+}
+
+.card .card_body .row:not(.btns, .links) .col:first-child
+{
+  height: 100%;
+  width: 50px;
+  display: grid;
+  place-items: center;
+  font-size: 1.2rem;
+}
+
+.card .card_body .row:not(.btns, .links) .col:last-child
+{
+  height: 100%;
+  width: calc(100% - 50px);
+}
+
+.card i.fas
+{
+  color: var(--whiteish);
+}
+
+.card input
+{
+  width: 100%;
+  height: 100%;
+  padding-left: 15px;
+  background: none;
+  color: var(--whiteish);
+  border: none;
+  outline: none;
+  border: 2px solid var(--whiteish);
+}
+
+.card input:focus
+{
+  border-color: var(--blueish);
+  color: var(--blueish);
+}
+
+.card .row.btns
+{
+  margin: 15px 0 0 0;
+}
+
+.card .row.btns .col
+{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card .row.btns .col button
+{
+  width: 100%;
+  height: 50px;
+  background: var(--blueish);
+  color: var(--blackish);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+}
+
+.card .row.btns .col button:focus,
+.card .row.btns .col button:hover
+{
+  filter: brightness(1.5);
+}
+
+.card .row.links .col
+{
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.card .row.links .col a
+{
+  color: var(--blueish);
+  text-decoration: none;
+}
+
+.card .row.links .col a:hover,
+.card .row.links .col a:focus
+{
+  text-decoration: underline;
+}
+
+.card.login .card_header .reg_header,
+.card.login .row.reg,
+.card.login .row.btns .btn_reg,
+.card.login .row.links .yes_account,
+.card.reg .card_header .login_header,
+.card.reg .row.btns .btn_login,
+.card.reg .row.links .no_account
+{
+  display: none;
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Stock Management System</title>
+    <link rel="stylesheet" href="assets/css/presets.css">
+    <link rel="stylesheet" href="assets/css/indexStyle.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <script type="text/javascript" src="assets/js/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="header">
+        <div class="logo">
+
+        </div>
+        <div class="operations">
+          <button class="btn_login" title="Sign In"><i class="fas fa-sign-in-alt"></i></button>
+          <button class="btn_view_cart" title="Open Cart"><i class="fas fa-shopping-cart"></i></button>
+          <button class="btn_edit_profile" title="Edit Profile"><i class="fas fa-user-edit"></i></button>
+          <button class="btn_logout" title="Sign Out"><i class="fas fa-sign-out-alt"></i></button>
+        </div>
+      </div>
+      <div class="body">
+        <div class="search">
+          <input type="text" class="search_bar" placeholder="Enter product ID/name/category">
+          <button type="button" class="btn_search" title="Use Keywords to search or leave blank to show all"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="stock_display">
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Product</th>
+                <th>Quantity</th>
+				        <th>Price</th>
+				        <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="alert_message">
+        <p class="message"></p>
+        <span><i class="message_type_icon fas"></i></span>
+      </div>
+      <div class="modal_wrapper error">
+        <div class="modal">
+          <div class="header">
+            <h2>ERROR</h2>
+            <i class="fas fa-times-circle"></i>
+          </div>
+          <div class="content">
+            <p>You are not Logged in!! </p>
+            <button class="btn_login">Login</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal_wrapper add_to_cart">
+        <div class="modal">
+          <div class="header">
+            <h2>PRODUCT INFORMATION</h2>
+            <i class="fas fa-times-circle"></i>
+          </div>
+          <div class="content">
+            <div class="row">
+              <div class="col">
+                <p id="product">Chanel Perfume</p>
+              </div>
+              <div class="col">
+                <p id="cost">R25</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <p>Quantity</p>
+              </div>
+              <div class="col">
+                <p id="qty"><input type="number" min="1" max="10" step="1" value="1"></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <p>Total</p>
+              </div>
+              <div class="col">
+                <p id="total">R68</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col"><button class="btn_add_to_cart">Add To Cart</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal_wrapper cart">
+        <div class="modal">
+          <div class="header">
+            <h2>CHECKOUT</h2>
+            <i class="fas fa-times-circle"></i>
+          </div>
+          <div class="content">
+            <div class="items">
+
+            </div>
+            <div class="checkout">
+              <button class="btn_checkout">Checkout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal_wrapper edit_profile">
+        <div class="modal">
+          <div class="header">
+            <h2>Personal Details</h2>
+            <i class="fas fa-times-circle"></i>
+          </div>
+          <div class="content">
+            <div class="row">
+              <div class="col"><label for="username">Username</label></div>
+              <div class="col"><input id="username" type="text" disabled></div>
+            </div>
+            <div class="row">
+              <div class="col"><label for="title">Title</label></div>
+              <div class="col">
+                <select name="" id="title">
+                  <option value="default">Select</option>
+                  <option value="Mr">Mr</option>
+                  <option value="Miss">Miss</option>
+                  <option value="Mrs">Mrs</option>
+                </select>
+            </div>
+            </div>
+            <div class="row">
+              <div class="col"><label for="fname">First Name</label></div>
+              <div class="col"><input id="fname" type="text"></div>
+            </div>
+            <div class="row">
+              <div class="col"><label for="surname">Surname</label></div>
+              <div class="col"><input id="surname" type="text"></div>
+            </div>
+            <div class="row">
+              <div class="col"><label for="contact">Contact</label></div>
+              <div class="col"><input id="contact" type="text"></div>
+            </div>
+            <div class="row">
+              <div class="col"><label for="province">Province</label></div>
+              <div class="col">
+                <select id="province">
+                  <option value="default">Select</option>
+                  <option value="Eastern Cape">Eastern Cape</option>
+                  <option value="Free State">Free State</option>
+                  <option value="Gauteng">Gauteng</option>
+                  <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+                  <option value="Limpopo">Limpopo</option>
+                  <option value="Mpumalanga">Mpumalanga</option>
+                  <option value="Nothern Cape">Nothern Cape</option>
+                  <option value="North West">North West</option>
+                  <option value="Western Cape">Western Cape</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col"><label for="address">Address</label></div>
+              <div class="col"><textarea id="address" spellcheck="false"></textarea></div>
+            </div>
+            <div class="row">
+              <div class="col"><button id="btn_save">Save</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="assets/js/homeScript.js"></script>
+    <!-- <script type="text/javascript" src="assets/js/FileSaver.min.js"></script> -->
+  </body>
+</html>

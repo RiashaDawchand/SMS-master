@@ -1,0 +1,36 @@
+====Database====
+  * login table
+    - Username
+    - Password
+    - Account Type
+
+  * verification table
+    - Username
+    - OTP
+    - Confirmed
+
+  * Customer Table
+    - Username
+    - Title
+    - First name
+    - Surname
+    - Contact
+    - Province
+    - Address
+
+  * Products Table
+   - Add Cost Field
+   - Add Location Field
+
+  * Sales Table
+    - Sale Ref
+    - Username
+    - Total
+    - Date of Sale
+
+  * Orders Table
+    - Order ID
+    - Sale Ref
+    - Product ID
+    - Quantity
+    - cost

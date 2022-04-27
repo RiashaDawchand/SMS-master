@@ -1,0 +1,189 @@
+.wrapper .header
+{
+  width: 100%;
+  height: var(--header_height);
+  background: var(--blueish);
+}
+
+.wrapper .body
+{
+  width: 100%;
+  height: calc(100% - var(--header_height));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(70deg, var(--whiteish) 15%, var(--blackish) 105%);
+}
+
+.card
+{
+  width: 500px;
+  background: var(--blackish);
+}
+
+.card .card_header
+{
+  height: var(--header_height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--blueish);
+}
+
+.card_header h3
+{
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  color: var(--blackish);
+}
+
+.card .card_body
+{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+}
+
+.card .card_body .row
+{
+  display: flex;
+  width: 100%;
+  height: 50px;
+}
+
+.card .card_body .row:nth-child(7)
+{
+  height: auto;
+}
+
+
+.card .card_body .row:not(.row:last-child) .col:first-child
+{
+  height: 100%;
+  width: 150px;
+  text-align: right;
+  font-size: 1.2rem;
+}
+
+.card .card_body .row:not(.row:last-child) .col:last-child
+{
+  height: 100%;
+  width: calc(100% - 150px);
+}
+
+.card .row .col label
+{
+  color: var(--whiteish);
+  margin-right: 15px;
+  line-height: 50px;
+}
+
+.card input,
+.card select,
+.card textarea
+{
+  width: 100%;
+  height: 100%;
+  padding-left: 15px;
+  background: var(--blackish);
+  color: var(--whiteish);
+  border: none;
+  outline: none;
+  border: 2px solid var(--whiteish);
+}
+
+.card textarea
+{
+  height: 120px;
+  padding: 15px;
+  resize: none;
+}
+
+.card input:focus,
+.card select:focus,
+.card textarea:focus
+{
+  border-color: var(--blueish);
+  color: var(--blueish);
+}
+
+.card .row:last-child
+{
+  width: 100%;
+}
+
+.card .row:last-child .col
+{
+  width: 100%;
+  height: 100%;
+}
+
+.card .row:last-child .col button
+{
+  width: 100%;
+  height: 100%;
+}
+
+.card.otp_confirm input,
+.card.otp_confirm button
+{
+  width: 100%;
+  height: 50px;
+}
+
+.card.otp_confirm #otp_resend_email,
+.card.otp_confirm #btn_resend_otp
+{
+  display: none;
+}
+
+.card.otp_confirm.resend #otp,
+.card.otp_confirm.resend #btn_confirm_otp,
+.card.otp_confirm.resend #btn_no_otp
+{
+  display: none;
+}
+.card.otp_confirm.resend #otp_resend_email,
+.card.otp_confirm.resend #btn_resend_otp
+{
+  display: block;
+}
+
+.card.otp_confirm a
+{
+  text-align: center;
+  color: var(--blueish);
+  text-decoration: none;
+}
+
+.card.otp_confirm a:hover,
+.card.otp_confirm a:focus
+{
+  text-decoration: underline;
+}
+
+.card button
+{
+  background: var(--blueish);
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 300ms ease-in-out;
+}
+
+.card button:focus,
+.card button:hover
+{
+  filter: brightness(1.5);
+}
+
+.card.otp_confirm
+{
+  width: 400px;
+}
+
+.card.details
+{
+  display: none;
+}
